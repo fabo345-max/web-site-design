@@ -141,11 +141,6 @@ nav ul a.active {
   border: 1px solid #1E2330;
   border-radius: 4px;
   padding: 40px 36px;
-  transition: border-color 0.25s ease;
-}
-
-.tier-card:hover {
-  border-color: #6C8EF5;
 }
 
 .tier-label {

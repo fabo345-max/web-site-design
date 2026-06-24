@@ -9,6 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ── Template Showcase ── */
     .templates-section {
       max-width: 1050px;
       margin: 0 auto;
@@ -31,15 +36,28 @@
       gap: 16px;
     }
 
+    /* ── Template Card — pop-out on hover ── */
     .template-card {
       border: 1px solid #1E2330;
       border-radius: 4px;
-      overflow: hidden;
-      transition: border-color 0.25s ease;
+      overflow: visible;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.3s ease,
+                  border-color 0.25s ease;
+      position: relative;
+      background: #0D0F16;
     }
 
     .template-card:hover {
+      transform: scale(1.045) translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
       border-color: #6C8EF5;
+      z-index: 10;
+    }
+
+    .template-thumb-wrap {
+      overflow: hidden;
+      border-radius: 4px 4px 0 0;
     }
 
     .template-thumb {
@@ -49,7 +67,7 @@
       object-position: center top;
       display: block;
       filter: brightness(0.88);
-      transition: filter 0.25s ease;
+      transition: filter 0.3s ease;
     }
 
     .template-card:hover .template-thumb {
@@ -130,7 +148,7 @@
     </div>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="#templates" onclick="document.getElementById('templates').scrollIntoView({behavior:'smooth'});return false;">Services</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -142,6 +160,9 @@
   </section>
 
   <hr class="section-divider" />
+
+  <!-- Services anchor sits above the tier cards so both boxes are in view -->
+  <div id="services"></div>
 
   <section class="tiers">
     <div class="tier-card">
@@ -157,13 +178,15 @@
   </section>
 
   <!-- Template Showcase -->
-  <div class="templates-section" id="templates">
+  <div class="templates-section">
     <p class="templates-label">Browse our templates</p>
     <div class="templates-grid">
 
       <details class="template-card">
         <summary>
-          <img src="template1.png" alt="BrightSmile template" class="template-thumb" />
+          <div class="template-thumb-wrap">
+            <img src="template1.png" alt="BrightSmile template" class="template-thumb" />
+          </div>
           <div class="template-summary">
             <span class="template-name">BrightSmile</span>
             <span class="template-expand-icon">→</span>
@@ -177,7 +200,9 @@
 
       <details class="template-card">
         <summary>
-          <img src="template2.png" alt="Apex Dental template" class="template-thumb" />
+          <div class="template-thumb-wrap">
+            <img src="template2.png" alt="Apex Dental template" class="template-thumb" />
+          </div>
           <div class="template-summary">
             <span class="template-name">Apex Dental</span>
             <span class="template-expand-icon">→</span>
@@ -191,7 +216,9 @@
 
       <details class="template-card">
         <summary>
-          <img src="template3.png" alt="Maplewood Dental template" class="template-thumb" />
+          <div class="template-thumb-wrap">
+            <img src="template3.png" alt="Maplewood Dental template" class="template-thumb" />
+          </div>
           <div class="template-summary">
             <span class="template-name">Maplewood Dental</span>
             <span class="template-expand-icon">→</span>

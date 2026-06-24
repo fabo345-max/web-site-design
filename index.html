@@ -13,6 +13,18 @@
       scroll-behavior: smooth;
     }
 
+    /* ── Nav agency label ── */
+    .nav-agency-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5A6070;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     /* ── Template Showcase ── */
     .templates-section {
       max-width: 1050px;
@@ -36,7 +48,7 @@
       gap: 16px;
     }
 
-    /* ── Template Card — pop-out on hover ── */
+    /* ── Template Card pop-out ── */
     .template-card {
       border: 1px solid #1E2330;
       border-radius: 4px;
@@ -55,9 +67,23 @@
       z-index: 10;
     }
 
+    /* ── Watermark overlay ── */
     .template-thumb-wrap {
       overflow: hidden;
       border-radius: 4px 4px 0 0;
+      position: relative;
+    }
+
+    .template-thumb-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('logo-trimmed.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 28%;
+      opacity: 0.18;
+      pointer-events: none;
     }
 
     .template-thumb {
@@ -141,11 +167,12 @@
 </head>
 <body>
 
-  <nav>
+  <nav style="position: relative;">
     <div class="logo-container">
       <img src="logo-trimmed.png" class="logo-img" alt="Undreamt Designs logo" />
       <span class="logo-text">Undreamt Designs</span>
     </div>
+    <span class="nav-agency-label">Web Design Agency</span>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="#services">Services</a></li>
@@ -154,14 +181,12 @@
   </nav>
 
   <section class="hero">
-    <p class="eyebrow">Web Design Agency</p>
-    <h1>Websites that keep your patients connected.</h1>
+    <h1>High performance websites for high-growth practices.</h1>
     <p>We build fast, professional websites for healthcare practices. Clear information, easy booking, and a presence your patients can trust.</p>
   </section>
 
   <hr class="section-divider" />
 
-  <!-- Services anchor sits above the tier cards so both boxes are in view -->
   <div id="services"></div>
 
   <section class="tiers">
@@ -177,7 +202,6 @@
     </div>
   </section>
 
-  <!-- Template Showcase -->
   <div class="templates-section">
     <p class="templates-label">Browse our templates</p>
     <div class="templates-grid">

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Undreamt Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Template Showcase ── */
+    .templates-section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+
+    .templates-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #5A6070;
+      margin-bottom: 20px;
+      padding-top: 8px;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .template-card {
+      border: 1px solid #1E2330;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .template-card:hover {
+      border-color: #6C8EF5;
+    }
+
+    .template-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: brightness(0.88);
+      transition: filter 0.25s ease;
+    }
+
+    .template-card:hover .template-thumb {
+      filter: brightness(1);
+    }
+
+    .template-summary {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .template-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #E8EAF0;
+    }
+
+    .template-expand-icon {
+      font-size: 11px;
+      color: #5A6070;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    details.template-card[open] .template-expand-icon {
+      transform: rotate(90deg);
+    }
+
+    .template-detail {
+      padding: 0 18px 20px;
+      border-top: 1px solid #1E2330;
+    }
+
+    .template-detail p {
+      font-size: 12px;
+      font-weight: 300;
+      color: #5A6070;
+      line-height: 1.7;
+      margin-bottom: 14px;
+      padding-top: 14px;
+    }
+
+    .template-detail a {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #6C8EF5;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      border-bottom: 1px solid #6C8EF5;
+      padding-bottom: 2px;
+    }
+
+    .template-detail a:hover {
+      opacity: 0.75;
+    }
+
+    details summary {
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo-container">
+      <img src="logo-trimmed.png" class="logo-img" alt="Undreamt Designs logo" />
+      <span class="logo-text">Undreamt Designs</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow">What we offer</p>
+    <h1>Two focused offerings for healthcare practices.</h1>
+    <p>Built to meet your practice exactly where it is.</p>
+  </div>
+
+  <section class="services-grid">
+    <div class="service-card">
+      <div class="service-card-body">
+        <h3>Essential Packages</h3>
+      </div>
+      <p style="padding: 0 28px 28px; font-size: 13px; font-weight: 300; color: #5A6070; line-height: 1.75;">Fast, affordable implementation using signature design layouts, tailored fully to your practice's brand, colors, and content. All the polish, none of the wait.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-body">
+        <h3>Custom Webpage</h3>
+      </div>
+      <p style="padding: 0 28px 28px; font-size: 13px; font-weight: 300; color: #5A6070; line-height: 1.75;">We work with you to fully customize the look and features you want. From the first conversation to launch, every detail is built around your practice.</p>
+    </div>
+  </section>
+
+  <!-- Template Showcase -->
+  <div class="templates-section">
+    <p class="templates-label">Browse our templates</p>
+    <div class="templates-grid">
+
+      <details class="template-card">
+        <summary class="template-summary">
+          <img src="template1.webp" alt="BrightSmile template" class="template-thumb" />
+          <div style="padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;">
+            <span class="template-name">BrightSmile</span>
+            <span class="template-expand-icon">→</span>
+          </div>
+        </summary>
+        <div class="template-detail">
+          <p>A clean, light dental practice site with a warm family feel. Includes appointment booking, services overview, and patient stats.</p>
+          <a href="https://fabo345-max.github.io/dental-templates/Dental%20template/" target="_blank">View live →</a>
+        </div>
+      </details>
+
+      <details class="template-card">
+        <summary class="template-summary">
+          <img src="template2.jpg" alt="Apex Dental template" class="template-thumb" />
+          <div style="padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;">
+            <span class="template-name">Apex Dental</span>
+            <span class="template-expand-icon">→</span>
+          </div>
+        </summary>
+        <div class="template-detail">
+          <p>Bold and modern dark design. Built for cosmetic and restorative practices that want to make a strong first impression.</p>
+          <a href="https://fabo345-max.github.io/dental-templates/Dental%20template%202/" target="_blank">View live →</a>
+        </div>
+      </details>
+
+      <details class="template-card">
+        <summary class="template-summary">
+          <img src="template3.webp" alt="Maplewood Dental template" class="template-thumb" />
+          <div style="padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;">
+            <span class="template-name">Maplewood Dental</span>
+            <span class="template-expand-icon">→</span>
+          </div>
+        </summary>
+        <div class="template-detail">
+          <p>Warm and welcoming family practice design. Emphasizes trust, community, and accessibility with a classic Surrey feel.</p>
+          <a href="https://fabo345-max.github.io/dental-templates/Dental%20template%203/" target="_blank">View live →</a>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a href="contact.html" class="cta-button">Book a design consultation →</a>
+  </div>
+
+</body>
+</html>

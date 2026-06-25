@@ -83,7 +83,7 @@ nav ul a.active {
 
 .hero-text {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 620px;
   margin-right: 280px;
 }
@@ -121,24 +121,26 @@ nav ul a.active {
   mix-blend-mode: screen;
 }
 
-/* Glow orb — emanates from the lamp bulb area toward the text */
-.hero-lamp::before {
+/* Glow — lives on the hero so it can arc freely across the full width */
+.hero::after {
   content: '';
   position: absolute;
-  bottom: 38%;
-  left: 5%;
-  width: 420px;
-  height: 420px;
+  /* Anchor near the lamp bulb: right side, vertically centered */
+  right: 260px;
+  top: 55%;
+  width: 900px;
+  height: 900px;
   background: radial-gradient(
     circle,
-    rgba(255, 240, 180, 0.18) 0%,
-    rgba(200, 210, 255, 0.12) 30%,
-    rgba(108, 142, 245, 0.07) 55%,
-    transparent 75%
+    rgba(255, 245, 190, 0.20) 0%,
+    rgba(220, 225, 255, 0.13) 18%,
+    rgba(108, 142, 245, 0.08) 38%,
+    rgba(108, 142, 245, 0.03) 58%,
+    transparent 72%
   );
-  transform: translate(-55%, 40%);
+  transform: translate(50%, -50%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 
 .eyebrow {

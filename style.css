@@ -525,19 +525,27 @@ textarea:focus {
     mix-blend-mode: screen;
   }
 
-  /* Glow tracks bulb — lamp top:48px, 60vw/max 260px wide, right:-40px
-     bulb y from hero top = 48px + 40vw*0.68 = 48px + 27.2vw */
+  /* Glow tracks bulb opening (bottom-left of lamp shade)
+     Lamp top:48px, 60vw wide, right:-40px
+     Bulb x: 22% from left of lamp = lamp_left + 60vw*0.22
+       lamp_left = 100vw - 60vw + 40px = 40vw + 40px
+       bulb_x from left = 40vw + 40px + 13.2vw = 53.2vw + 40px
+       bulb from right = 46.8vw - 40px → right: calc(47vw - 40px)
+     Bulb y: 68% from top of lamp image
+       lamp height = 60vw/1.5 = 40vw
+       bulb_y from hero top = 48px + 40vw*0.68 = 48px + 27.2vw → top: calc(48px + 27vw)
+  */
   .hero::after {
     display: block;
-    right: 47%;
+    right: calc(47vw - 40px);
     top: calc(48px + 27vw);
     width: 260px;
     height: 260px;
     background: radial-gradient(
       circle,
-      rgba(255, 245, 190, 0.18) 0%,
-      rgba(220, 225, 255, 0.09) 18%,
-      rgba(108, 142, 245, 0.05) 40%,
+      rgba(255, 245, 190, 0.28) 0%,
+      rgba(220, 225, 255, 0.15) 18%,
+      rgba(108, 142, 245, 0.07) 40%,
       transparent 68%
     );
     transform: translate(50%, -50%);

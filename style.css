@@ -77,13 +77,15 @@ nav ul a.active {
   min-height: 480px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   overflow: visible;
 }
 
 .hero-text {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 620px;
+  margin-right: 280px;
 }
 
 .hero-lamp {
@@ -94,19 +96,32 @@ nav ul a.active {
   width: 520px;
   pointer-events: none;
   z-index: 1;
+  /* Blend lamp into dark background */
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 80% at 70% 50%,
+    black 30%,
+    rgba(0,0,0,0.5) 55%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 80% at 70% 50%,
+    black 30%,
+    rgba(0,0,0,0.5) 55%,
+    transparent 80%
+  );
 }
 
 .lamp-img {
   width: 100%;
   display: block;
-  opacity: 0.92;
+  opacity: 0.5;
+  mix-blend-mode: lighten;
 }
 
 /* Glow orb — emanates from the lamp bulb area toward the text */
 .hero-lamp::before {
   content: '';
   position: absolute;
-  /* Bulb is bottom-left of the lamp image */
   bottom: 38%;
   left: 5%;
   width: 420px;

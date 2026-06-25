@@ -496,6 +496,12 @@ textarea:focus {
     );
   }
 
+  /* Override blend mode on mobile so lamp is visible */
+  .lamp-img {
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
   /* Shrink glow on mobile */
   .hero::after {
     width: 300px;

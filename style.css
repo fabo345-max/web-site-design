@@ -77,17 +77,16 @@ nav ul a.active {
   min-height: 480px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-text {
   position: relative;
   z-index: 3;
-  max-width: 620px;
-  margin-right: 280px;
+  max-width: 560px;
 }
 
+/* Lamp */
 .hero-lamp {
   position: absolute;
   right: -120px;
@@ -121,15 +120,22 @@ nav ul a.active {
   mix-blend-mode: screen;
 }
 
-/* Glow — lives on the hero so it can arc freely across the full width */
+/*
+  Glow — centred on the bulb opening.
+  Bulb is at ~22% from left of the lamp image, ~68% from top.
+  Desktop: lamp 520px wide, right:-120px inside 1050px hero.
+    lamp left edge = 1050 + 120 - 520 = 650px from hero left
+    bulb x = 650 + 520*0.22 = 764px from left = 286px from right = ~27% from right
+    bulb y = (480/2) - (520/1.5/2) + (520/1.5)*0.68 ≈ 63% of hero height
+  transform: translate(50%, -50%) centres the circle on that point.
+*/
 .hero::after {
   content: '';
   position: absolute;
-  /* Anchor near the lamp bulb: right side, vertically centered */
-  right: 260px;
-  top: 55%;
-  width: 900px;
-  height: 900px;
+  right: 27%;
+  top: 63%;
+  width: 780px;
+  height: 780px;
   background: radial-gradient(
     circle,
     rgba(255, 245, 190, 0.20) 0%,
@@ -418,7 +424,32 @@ textarea:focus {
 }
 
 /* ══════════════════════════════════════════
-   MOBILE RESPONSIVE — max 768px
+   TABLET — max 900px
+   ══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  /*
+    Lamp 400px wide, right:-80px inside ~900px hero.
+    lamp left = 900+80-400 = 580px
+    bulb x = 580 + 400*0.22 = 668px from left = 232px from right = ~26% from right
+    bulb y stays ~63% of hero height
+  */
+  .hero-lamp {
+    width: 400px;
+    right: -80px;
+  }
+
+  .hero::after {
+    right: 26%;
+    top: 63%;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  }
+}
+
+/* ══════════════════════════════════════════
+   MOBILE — max 768px
    ══════════════════════════════════════════ */
 @media (max-width: 768px) {
 
@@ -437,7 +468,6 @@ textarea:focus {
     height: 28px;
   }
 
-  /* Hide "Web Design Agency" label on mobile — too cramped */
   .nav-agency-label {
     display: none;
   }
@@ -452,66 +482,49 @@ textarea:focus {
 
   /* ── Hero ── */
   .hero {
-    padding: 48px 20px 40px;
+    padding: 52px 24px 48px;
     min-height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     overflow: hidden;
-    position: relative;
   }
 
   .hero-text {
     max-width: 100%;
-    margin-right: 0;
-    z-index: 2;
     position: relative;
+    z-index: 2;
   }
 
-  /* Lamp sits behind text as a background element on mobile */
+  /*
+    Mobile: lamp 75vw wide, right:-30px.
+    At 390px screen: lamp=292px, lamp left=390+30-292=128px
+      bulb x = 128 + 292*0.22 = 192px from left = 198px from right = ~51% from right
+    At 360px screen: lamp=270px, lamp left=360+30-270=120px
+      bulb x = 120 + 270*0.22 = 179px from left = 181px from right = ~50% from right
+    Consistent ~50% from right across all mobile widths.
+    Bulb y: hero height ~420px on mobile, lamp height=75vw/1.5=50vw
+      lamp top = 210 - 25vw, bulb y = lamp_top + 50vw*0.68 = 210 + 9vw ≈ 54% of hero height
+  */
   .hero-lamp {
     display: block;
     position: absolute;
-    right: -40px;
+    right: -30px;
     top: 50%;
     transform: translateY(-50%);
     width: 75vw;
-    max-width: 320px;
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 1;
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0,0,0,0.4) 20%,
-      black 60%,
-      black 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0,0,0,0.4) 20%,
-      black 60%,
-      black 100%
-    );
+    max-width: 340px;
+    opacity: 0.9;
+    mix-blend-mode: screen;
   }
 
-  /* Override blend mode on mobile so lamp is visible */
-  .lamp-img {
-    mix-blend-mode: normal;
-    opacity: 1;
-  }
-
-  /* Shrink glow on mobile */
   .hero::after {
-    width: 300px;
-    height: 300px;
-    right: 60px;
-    top: 50%;
+    right: 50%;
+    top: 58%;
+    width: 340px;
+    height: 340px;
+    transform: translate(50%, -50%);
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
     margin-bottom: 16px;
   }
 
@@ -534,16 +547,6 @@ textarea:focus {
 
   .tier-card {
     padding: 28px 24px;
-  }
-
-  /* ── Templates section ── */
-  .templates-section {
-    padding: 0 20px 60px;
-  }
-
-  .templates-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
   }
 
   /* ── About ── */
@@ -586,16 +589,33 @@ textarea:focus {
    ══════════════════════════════════════════ */
 @media (max-width: 480px) {
 
+  nav {
+    padding: 14px 16px;
+  }
+
   nav ul {
-    gap: 12px;
+    gap: 14px;
   }
 
   .logo-text {
     font-size: 13px;
   }
 
+  .hero {
+    padding: 44px 16px 40px;
+  }
+
+  /*
+    At 360px: lamp=75vw=270px, right:-30px
+    bulb still lands at ~50% from right, glow stays consistent
+  */
+  .hero::after {
+    width: 280px;
+    height: 280px;
+  }
+
   .hero h1 {
-    font-size: 1.9rem;
+    font-size: 1.85rem;
   }
 
   .tier-card h3 {
@@ -604,5 +624,9 @@ textarea:focus {
 
   .about-inner h2 {
     font-size: 1.8rem;
+  }
+
+  .tiers {
+    padding: 36px 16px 44px;
   }
 }

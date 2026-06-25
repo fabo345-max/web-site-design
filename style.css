@@ -118,8 +118,7 @@ nav ul a.active {
 .lamp-img {
   width: 100%;
   display: block;
-  opacity: 0.5;
-  mix-blend-mode: screen;
+  opacity: 0.55;
 }
 
 /* Glow orb — bright, wide beam from bulb deep into the text */

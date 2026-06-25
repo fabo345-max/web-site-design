@@ -243,6 +243,21 @@
       .templates-section { padding: 0 16px 52px; }
     }
   </style>
+  <script>
+    // Ensure #services anchor scrolls within page on all devices
+    document.addEventListener('DOMContentLoaded', function() {
+      var servicesLink = document.querySelector('a[href="#services"]');
+      if (servicesLink) {
+        servicesLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById('services');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  </script>
 </head>
 <body>
 

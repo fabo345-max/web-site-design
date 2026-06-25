@@ -493,12 +493,12 @@ textarea:focus {
     position: relative;
   }
 
-  /* Lamp sits beside the h1 text, top-right of hero */
+  /* Lamp sits top-right, inline with h1 */
   .hero-lamp {
     display: block;
     position: absolute;
     right: -40px;
-    top: 0px;
+    top: 48px;
     transform: none;
     width: 60vw;
     max-width: 260px;
@@ -525,17 +525,12 @@ textarea:focus {
     mix-blend-mode: screen;
   }
 
-  /*
-    Glow tracks bulb — lamp now top:0, 60vw wide, right:-40px
-    lamp left = 100vw - 60vw + 40px = 40vw + 40px
-    bulb x from left = (40vw + 40px) + 60vw*0.22 = 40vw + 40px + 13.2vw = 53.2vw + 40px
-    bulb from right = 100vw - (53.2vw + 40px) = 46.8vw - 40px ≈ 47% from right
-    lamp height = 60vw/1.5 = 40vw, bulb y = 40vw*0.68 = 27.2vw from lamp top = 27vw from hero top
-  */
+  /* Glow tracks bulb — lamp top:48px, 60vw/max 260px wide, right:-40px
+     bulb y from hero top = 48px + 40vw*0.68 = 48px + 27.2vw */
   .hero::after {
     display: block;
     right: 47%;
-    top: 27vw;
+    top: calc(48px + 27vw);
     width: 260px;
     height: 260px;
     background: radial-gradient(

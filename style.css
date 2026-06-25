@@ -493,15 +493,15 @@ textarea:focus {
     position: relative;
   }
 
-  /* Lamp as ghost behind text */
+  /* Lamp sits beside the h1 text, top-right of hero */
   .hero-lamp {
     display: block;
     position: absolute;
     right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70vw;
-    max-width: 300px;
+    top: 0px;
+    transform: none;
+    width: 60vw;
+    max-width: 260px;
     pointer-events: none;
     z-index: 1;
     opacity: 0.8;
@@ -526,23 +526,23 @@ textarea:focus {
   }
 
   /*
-    Mobile glow anchored to bulb.
-    Lamp 70vw wide, right:-40px → lamp left = 100vw - 70vw + 40px = 30vw + 40px
-    Bulb x from left = (30vw + 40px) + 70vw*0.22 = 30vw + 40px + 15.4vw = 45.4vw + 40px
-    Bulb from right = 100vw - (45.4vw + 40px) = 54.6vw - 40px ≈ 45% from right
-    Bulb y ≈ 61% of hero height
+    Glow tracks bulb — lamp now top:0, 60vw wide, right:-40px
+    lamp left = 100vw - 60vw + 40px = 40vw + 40px
+    bulb x from left = (40vw + 40px) + 60vw*0.22 = 40vw + 40px + 13.2vw = 53.2vw + 40px
+    bulb from right = 100vw - (53.2vw + 40px) = 46.8vw - 40px ≈ 47% from right
+    lamp height = 60vw/1.5 = 40vw, bulb y = 40vw*0.68 = 27.2vw from lamp top = 27vw from hero top
   */
   .hero::after {
     display: block;
-    right: 45%;
-    top: 61%;
-    width: 320px;
-    height: 320px;
+    right: 47%;
+    top: 27vw;
+    width: 260px;
+    height: 260px;
     background: radial-gradient(
       circle,
-      rgba(255, 245, 190, 0.28) 0%,
-      rgba(220, 225, 255, 0.15) 18%,
-      rgba(108, 142, 245, 0.08) 40%,
+      rgba(255, 245, 190, 0.18) 0%,
+      rgba(220, 225, 255, 0.09) 18%,
+      rgba(108, 142, 245, 0.05) 40%,
       transparent 68%
     );
     transform: translate(50%, -50%);

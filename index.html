@@ -163,6 +163,23 @@
     details summary::-webkit-details-marker {
       display: none;
     }
+
+    /* ── Mobile overrides ── */
+    @media (max-width: 768px) {
+      .templates-section {
+        padding: 0 20px 60px;
+      }
+      .templates-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .template-card:hover {
+        transform: none;
+      }
+      .nav-agency-label {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>

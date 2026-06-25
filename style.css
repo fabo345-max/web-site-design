@@ -458,22 +458,50 @@ textarea:focus {
     align-items: flex-start;
     justify-content: flex-start;
     overflow: hidden;
+    position: relative;
   }
 
   .hero-text {
     max-width: 100%;
     margin-right: 0;
     z-index: 2;
+    position: relative;
   }
 
-  /* Hide lamp on mobile — too complex to lay out */
+  /* Lamp sits behind text as a background element on mobile */
   .hero-lamp {
-    display: none;
+    display: block;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 75vw;
+    max-width: 320px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,0.4) 20%,
+      black 60%,
+      black 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,0.4) 20%,
+      black 60%,
+      black 100%
+    );
   }
 
-  /* Kill glow pseudo-element on mobile */
+  /* Shrink glow on mobile */
   .hero::after {
-    display: none;
+    width: 300px;
+    height: 300px;
+    right: 60px;
+    top: 50%;
   }
 
   .hero h1 {
